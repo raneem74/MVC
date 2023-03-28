@@ -1,0 +1,71 @@
+﻿@model IEnumerable<UseEF.Models.Emp>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div>
+    <form method="post" action="/Emp/Filter">
+        @Html.DropDownList("dID", new SelectList(ViewBag.deptList, "DeptID", "DeptName"), htmlAttributes: new { @class = "form-control" })
+        <input type="submit" value="filter"/>
+    </form>
+    @*@Html.ValidationMessageFor(model => model.dID, "", new { @class = "text-danger" })*@
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpFname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpLname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpHDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CtyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dept.DeptName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpFname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpLname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpSalary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpHDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CtyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dept.DeptName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmpID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmpID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmpID })
+        </td>
+    </tr>
+}
+
+</table>

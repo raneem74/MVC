@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model WebApplication1.Models.Car
+
+@* first helper *@
+@helper FormatPrice(decimal price, bool isInStock)
+{
+    if (isInStock)
+    {
+        <span style="color: green;">@price.ToString("C")</span>
+    }
+    else
+    {
+        <span style="color: red;">@price.ToString("C")</span>
+    }
+}
+
+@* second helper *@
+@helper displayCar(WebApplication1.Models.Car c)
+{
+    <h1>Car Details</h1>
+    <table>
+        <tr>
+            <th>Num</th>
+            <th>Color</th>
+            <th>Model</th>
+            <th>Manufacture</th>
+        </tr>
+        <tr>
+            <td id="num"> @c.Num </td>
+            <td id="color">@c.Color</td>
+            <td id="model">@c.Model</td>
+            <td id="manufacture">@c.Manfacture</td>
+        </tr>
+    </table>
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+
+    <p>
+        @Model.Manfacture: @FormatPrice(Model.Num, true)
+    </p>
+    <p>
+        @Model.Manfacture: @FormatPrice(Model.Num, false)
+    </p>
+
+    @displayCar(Model)
+</div>
+
+<div class="row">
+
+</div>
