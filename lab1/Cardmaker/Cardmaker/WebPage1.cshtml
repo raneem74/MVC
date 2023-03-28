@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="contatinet" style="display: flex; flex-direction: row;">
+        <div id="form">
+            <form method="post">
+                <label for="background">Select a background</label>
+                <br />
+                <select name="background" id="background">
+                    <option disabled selected>--Select an option--</option>
+                    <option value="0.jpg">Option 0</option>
+                    <option value="1.jpg">Option 1</option>
+                    <option value="2.jpg">Option 2</option>
+                    <option value="3.jpg">Option 3</option>
+                    <option value="4.jpg">Option 4</option>
+                    <option value="5.jpg">Option 5</option>
+                    <option value="6.jpg">Option 6</option>
+                    <option value="7.jpg">Option 7</option>
+                    <option value="8.jpg">Option 8</option>
+                    <option value="9.jpg">Option 9</option>
+                </select>
+                <br />
+                <br />
+                <br />
+                <label for="color">Select a font color</label>
+                <br />
+                <select name="color" id="color">
+                    <option disabled selected>--Select an option--</option>
+                    <option value="black">black</option>
+                    <option value="hotpink">hotpink</option>
+                    <option value="gray">gray</option>
+                    <option value="purple">purple</option>
+                    <option value="teal">teal</option>
+                </select>
+                <hr />
+                <label>Choose a card type</label>
+                <br />
+                <input type="radio" name="type" id="option1" value="bd.jpg">
+                <label for="option1">Birthday</label><br>
+
+                <input type="radio" name="type" id="option2" value="well.gif">
+                <label for="option2">Get well soon</label><br>
+
+                <input type="radio" name="type" id="option3" value="val.bmp">
+                <label for="option3">Valentine</label><br>
+
+                <input type="radio" name="type" id="option4" value="congrats.gif">
+                <label for="option4">Congrats</label><br><br />
+
+
+                <input type="checkbox" id="pic" name="pic">
+                <label for="pic">Add the picture</label><br><br />
+
+                <label for="message">Enter the greeting message bellow</label>
+                <br />
+                <input type="text" id="message" name="message"/>
+                <br /><br />
+                <input type="submit" value="Preview" />
+            </form>
+        </div>
+
+        @{
+            if (IsPost)
+            {
+                string bgPath = "backgrounds/"+ Request["background"];
+                string color = Request["color"];
+                string imgPath = "images/"+Request["type"];
+                int showImg = @Request["pic"] == "on" ? 1 : 0;
+                <div id="card" style="background-image: url(@bgPath); height: 300px; width: 500px;display: flex;justify-content:center;align-items:center;flex-direction: column;">
+                    <img src="@imgPath" style="height: 100px; width: 100px;opacity:@showImg;"/><br>
+                    <div style="color:@color;font-size:80px">@Request["message"]</div>
+                </div>
+            }
+
+
+
+        }
+
+    </div>
+</body>
+</html>

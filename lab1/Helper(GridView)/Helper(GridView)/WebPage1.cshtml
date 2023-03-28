@@ -1,0 +1,38 @@
+﻿@using Helper_GridView_;
+@using System.Web.Helpers;
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    @{
+        List<Person> pList = new List<Person>();
+
+
+        pList.Add(new Person() { gender = "female", Id = 5, Name = "raneem" });
+        pList.Add(new Person() { gender = "male", Id = 6, Name = "saleh" });
+        pList.Add(new Person() { gender = "female", Id = 6, Name = "rahaf" });
+
+
+        WebGrid wb = new WebGrid(pList);
+
+    }
+    @wb.GetHtml()
+
+    <p>@string.Format("{0:C}", 500)</p>
+
+    <p>The current date and time is: @DateTime.Now</p>
+
+    <div class="col-sm-10">
+        C# @Html.CheckBox("C#", new { value = "C#" })
+        C @Html.CheckBox("C", new { value = "C" })
+        C++ @Html.CheckBox("C++", new { value = "C++" })
+    </div>
+
+
+
+
+</body>
+</html>
