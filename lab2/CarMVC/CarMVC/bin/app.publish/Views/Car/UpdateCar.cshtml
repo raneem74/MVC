@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "UpdateCar";
+}
+
+@{var car = ViewBag.car;}
+<h2>UpdateCar</h2>
+
+<form action="/Car/UpdateCar" method="post">
+
+    <label>Number </label>
+    <input type="text" name="Num" value="@car.Num" readonly="readonly"/>
+    <label>Color</label>
+    <input type="text" name="Color" value="@car.Color" />
+    <label>Model</label>
+    <input type="text" name="Model" value="@car.Model" />
+    <label>Manfacture:</label>
+    <input type="text" name="Manfacture" value="@car.Manfacture" />
+
+    <input type="submit" value="Update" />
+</form>
+

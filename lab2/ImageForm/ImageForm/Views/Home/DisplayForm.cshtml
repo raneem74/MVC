@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "DisplayForm";
+}
+
+<h2>Please fill this form</h2>
+
+<form method="post" action="/Home/ShowDetails">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id"><br>
+    <br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+    <br>
+    <label for="image">Image Number:</label>
+    <select id="image" name="image">
+        <option value="1.jpg">Image 1</option>
+        <option value="2.jpg">Image 2</option>
+        <option value="3.jpg">Image 3</option>
+        <option value="4.jpg">Image 4</option>
+        <option value="5.jpg">Image 5</option>
+        <option value="6.jpg">Image 6</option>
+        <option value="7.jpg">Image 7</option>
+    </select><br><br />
+
+    <input type="submit" value="Submit">
+</form>

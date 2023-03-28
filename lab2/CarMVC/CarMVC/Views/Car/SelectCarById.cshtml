@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "SelectCarById";
+}
+
+<h2>SelectCarById</h2>
+
+
+@{var car = ViewBag.car;}
+<div>
+    <table>
+        <tr>
+            <th> Num </th>
+            <th> Color </th>
+            <th> Model </th>
+            <th> Manfacture </th>
+
+        </tr>
+
+      
+        <tr>
+            <td> @car.Num </td>
+            <td> @car.Color </td>
+            <td> @car.Model </td>
+            <td> @car.Manfacture </td>
+        </tr>
+        
+    </table>
+    <a href="/Car/GetAllCars"> Back to table </a>
+</div>
+

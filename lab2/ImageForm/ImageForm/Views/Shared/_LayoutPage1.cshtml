@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My MVC Application</title>
+    <style>
+        button {
+            background-color: ghostwhite;
+            color: darkblue;
+            margin : 15px;
+            width : 80px;
+            height : 40px;
+        }
+    </style>
+</head>
+<body style="background-color:cornflowerblue">
+    <h1>My MVC Application</h1>
+    <a href="/Home/Index">[ log on ]</a>
+    <div style="display:flex ; justify-content: flex-end; ">
+        <a href="/Home/Index">
+            <button>Home</button>
+        </a>
+
+        <a href="/Home/About">
+            <button>About</button>
+        </a>
+    </div>
+    <div style="background-color:white">
+        @RenderBody()
+    </div>
+</body>
+</html>
